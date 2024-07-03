@@ -3,27 +3,28 @@ import LOGO from "/Logo.png";
 
 const Navbar = () => {
   return (
-    <header>
+    <header className="flex items-center justify-between w-full max-w-screen-xl px-4 mx-auto">
       <div>
         <Link to="/">
-          <img src={LOGO} alt="logo" />
+          <img src={LOGO} alt="logo" className="max-w-[10rem]" />
         </Link>
       </div>
 
       <nav>
-        <div>
-          <ul>
-            <li>
-              <Link to="/">Home</Link>
-            </li>
-            <li>
-              <Link to="/about">About</Link>
-            </li>
-            <li>
-              <Link to="/contact">Contact</Link>
-            </li>
-          </ul>
-        </div>
+        <ul className="flex gap-4">
+          <li className="transition-all hover:text-orange-300">
+            <Link to="/">Home</Link>
+          </li>
+          <li className="transition-all hover:text-orange-300">
+            <Link to="/portfolio">Portfolio</Link>
+          </li>
+          <li className="transition-all hover:text-orange-300">
+            <Link to="/about">About</Link>
+          </li>
+          <li className="transition-all hover:text-orange-300">
+            <Link to="/contact">Contact</Link>
+          </li>
+        </ul>
       </nav>
     </header>
   );
