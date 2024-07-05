@@ -40,15 +40,15 @@ const Services = () => {
   }, []);
   return (
     <main
-      className="w-full h-screen bg-[#04091E] px-8 max-w-screen-xl mx-auto mb-52 "
+      className="w-full bg-[#04091E] px-8 max-w-screen-xl mx-auto mb-52 overflow-hidden"
       ref={view}
     >
       <h1 className="text-6xl text-center mb-20">Our Services</h1>
       <motion.div className=" grid grid-cols-3 mx-auto w-full gap-10">
         <motion.div
-          animate={isInView && { opacity: 1 }}
-          initial={{ opacity: 0 }}
-          transition={{ delay: 0.5, duration: 2 }}
+          animate={isInView && { x: 0 }}
+          initial={{ x: "-100vw" }}
+          transition={{ delay: 0.3, duration: 2, type: "spring" }}
           className="bg-[#4169e1] py-4 rounded-xl z-50 scale-[0.93]"
         >
           <div className="w-[270px] h-[280px] ml-10 mb-9" ref={frontend}></div>
@@ -63,9 +63,9 @@ const Services = () => {
           </div>
         </motion.div>
         <motion.div
-          animate={isInView && { opacity: 1 }}
-          initial={{ opacity: 0 }}
-          transition={{ delay: 0.5, duration: 2 }}
+          animate={isInView && { y: 0 }}
+          initial={{ y: "100vh" }}
+          transition={{ delay: 1.7, duration: 2, type: "spring" }}
           className="bg-[#001f3f] py-4 rounded-xl z-50"
         >
           <div className="h-[300px]" ref={app}></div>
@@ -80,9 +80,9 @@ const Services = () => {
           </div>
         </motion.div>
         <motion.div
-          animate={isInView && { opacity: 1 }}
-          initial={{ opacity: 0 }}
-          transition={{ delay: 0.5, duration: 2 }}
+          animate={isInView && { x: 0 }}
+          initial={{ x: "100vw" }}
+          transition={{ delay: 0.7, duration: 2, type: "spring" }}
           className="bg-[#4169e1] py-4 rounded-xl z-50 scale-[0.93]"
         >
           <div className="w-[270px] h-[300px] ml-12" ref={backend}></div>
