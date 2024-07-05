@@ -80,7 +80,7 @@ const Footer = () => {
       <div class="bottom-details">
         <div class="bottom_text">
           <span class="copyright_text">
-            Copyright © 2024 <a href="#"> Destiny Future Academy.</a>All rights
+            Copyright © 2024 <a href="#"> Sheger Innovations.</a>All rights
             reserved
           </span>
           <span class="policy_terms">
