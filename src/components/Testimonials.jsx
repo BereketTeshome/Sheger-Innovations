@@ -8,11 +8,58 @@ import "swiper/css/pagination";
 import { EffectCoverflow, Pagination } from "swiper/modules";
 
 export default function App() {
+  const swiperRef = React.useRef(null);
+
+  const handleClick = (index) => {
+    if (swiperRef.current) {
+      const swiper = swiperRef.current.swiper;
+      const activeIndex = swiper.activeIndex;
+
+      if (index > activeIndex) {
+        swiper.slideNext();
+      } else if (index < activeIndex) {
+        swiper.slidePrev();
+      }
+    }
+  };
+
+  const slides = [
+    {
+      quote:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum nesciunt itaque amet error aliquam neque libero dolor mollitia perspiciatis consectetur.",
+      image: "/Eyosias.jpg",
+      name: "Eyosias",
+      title: "CEO, Erkab Consulting",
+    },
+    {
+      quote:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum nesciunt itaque amet error aliquam neque libero dolor mollitia perspiciatis consectetur.",
+      image: "/Yibeltal.png",
+      name: "Yibeltal",
+      title: "Entrepreneur",
+    },
+    {
+      quote:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum nesciunt itaque amet error aliquam neque libero dolor mollitia perspiciatis consectetur.",
+      image: "/Dagim.png",
+      name: "Dagim",
+      title: "CTO, Erkab Consulting",
+    },
+    {
+      quote:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum nesciunt itaque amet error aliquam neque libero dolor mollitia perspiciatis consectetur.",
+      image: "/Alemfire.png",
+      name: "Alemfire",
+      title: "Janitor",
+    },
+  ];
+
   return (
     <>
-      <h1 className="text-2xl text-center mb-6">Testimonials</h1>
-      <h1 className="text-6xl text-center ">What Our Clients Say</h1>
+      <h1 className="mb-6 text-2xl text-center">Testimonials</h1>
+      <h1 className="text-6xl text-center">What Our Clients Say</h1>
       <Swiper
+        ref={swiperRef}
         effect={"coverflow"}
         grabCursor={true}
         centeredSlides={true}
@@ -28,95 +75,27 @@ export default function App() {
         modules={[EffectCoverflow, Pagination]}
         className="mySwiper"
       >
-        <SwiperSlide>
-          <img
-            src="/right-quote.png"
-            className="swiper-quote"
-            alt="right-quote.png"
-          />
-          <i>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum
-            nesciunt itaque amet error aliquam neque libero dolor mollitia
-            perspiciatis consectetur.
-          </i>
-
-          <div className="flex items-center mt-4 gap-7">
+        {slides.map((slide, index) => (
+          <SwiperSlide key={index} onClick={() => handleClick(index)}>
             <img
-              src="/Eyosias.jpg"
-              alt="Eyosias.jpg"
-              className="testimonial-img"
+              src="/right-quote.png"
+              className="swiper-quote"
+              alt="right-quote.png"
             />
-            <div>
-              <h2>Eyosias</h2>
-              <p>CEO, Erkab Consulting</p>
+            <i>{slide.quote}</i>
+            <div className="flex items-center mt-4 gap-7">
+              <img
+                src={slide.image}
+                alt={slide.name}
+                className="testimonial-img"
+              />
+              <div>
+                <h2>{slide.name}</h2>
+                <p>{slide.title}</p>
+              </div>
             </div>
-          </div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <img
-            src="/right-quote.png"
-            className="swiper-quote"
-            alt="right-quote.png"
-          />
-          <i>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum
-            nesciunt itaque amet error aliquam neque libero dolor mollitia
-            perspiciatis consectetur.
-          </i>
-          <div className="flex items-center mt-4 gap-7">
-            <img
-              src="/Yibeltal.png"
-              alt="Yibeltal.png"
-              className="testimonial-img"
-            />
-            <div>
-              <h2>Yibeltal</h2>
-              <p>Entrepreneur</p>
-            </div>
-          </div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <img
-            src="/right-quote.png"
-            className="swiper-quote"
-            alt="right-quote.png"
-          />
-          <i>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum
-            nesciunt itaque amet error aliquam neque libero dolor mollitia
-            perspiciatis consectetur.
-          </i>
-          <div className="flex items-center mt-4 gap-7">
-            <img src="/Dagim.png" alt="Dagim.png" className="testimonial-img" />
-            <div>
-              <h2>Dagim</h2>
-              <p>CTO, Erkab Consulting</p>
-            </div>
-          </div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <img
-            src="/right-quote.png"
-            className="swiper-quote"
-            alt="right-quote.png"
-          />
-          <i>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum
-            nesciunt itaque amet error aliquam neque libero dolor mollitia
-            perspiciatis consectetur.
-          </i>
-          <div className="flex items-center mt-4 gap-7">
-            <img
-              src="/Alemfire.png"
-              alt="Alemfire.png"
-              className="testimonial-img"
-            />
-            <div>
-              <h2>Alemire</h2>
-              <p>Janitor</p>
-            </div>
-          </div>
-        </SwiperSlide>
+          </SwiperSlide>
+        ))}
       </Swiper>
     </>
   );
