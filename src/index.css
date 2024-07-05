@@ -14,6 +14,49 @@ body {
   background-color: #04091e;
 }
 
+/* Testimonials */
+
+.swiper {
+  width: 100%;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+.swiper-slide {
+  background-position: center;
+  background-size: cover;
+  width: 300px;
+  background: #e7e5e5;
+  border-radius: 10px;
+  padding: 20px;
+  color: #01041d;
+  box-shadow: 1px 1px 15px -1px #fff;
+}
+
+.swiper-slide h2 {
+  font-weight: bold;
+}
+.swiper-slide p {
+  font-weight: 100;
+  color: #0a3083;
+  font-size: 0.9rem;
+}
+.swiper-slide i {
+  font-weight: 100;
+  color: #374e81;
+}
+.swiper-quote {
+  display: block;
+  width: 10%;
+  margin-bottom: 15px;
+}
+.testimonial-img {
+  width: 40%;
+  border-radius: 50%;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
 /* footer */
 
 footer {
