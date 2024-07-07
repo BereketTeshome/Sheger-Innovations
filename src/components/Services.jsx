@@ -49,7 +49,7 @@ const Services = () => {
           animate={isInView && { x: 0 }}
           initial={{ x: "-100vw" }}
           transition={{ delay: 0.3, duration: 2, type: "spring" }}
-          className="bg-[#4169e1] py-4 rounded-xl z-50 scale-[0.93]"
+          className="bg-[#4169e1] py-4 rounded-xl z-50"
         >
           <div className="w-[270px] h-[280px] ml-10 mb-9" ref={frontend}></div>
           <h1 className="px-8 text-3xl text-gray-200">Front-End</h1>
@@ -57,8 +57,7 @@ const Services = () => {
             <p className="font-light">
               Lorem ipsum dolor sit amet consectetur adipisicing elit.
               Asperiores neque ea recusandae, earum repudiandae, quisquam
-              voluptates nemo officia inventore voluptatum, hic sint at animi
-              minima sapiente? Necessitatibus debitis provident vero!
+              voluptates nemo officia inventore voluptatum.
             </p>
           </div>
         </motion.div>
@@ -74,8 +73,7 @@ const Services = () => {
             <p className="font-light">
               Lorem ipsum dolor sit amet consectetur adipisicing elit.
               Asperiores neque ea recusandae, earum repudiandae, quisquam
-              voluptates nemo officia inventore voluptatum, hic sint at animi
-              minima sapiente? Necessitatibus debitis provident vero!
+              voluptates nemo officia inventore voluptatum.
             </p>
           </div>
         </motion.div>
@@ -83,7 +81,7 @@ const Services = () => {
           animate={isInView && { x: 0 }}
           initial={{ x: "100vw" }}
           transition={{ delay: 0.7, duration: 2, type: "spring" }}
-          className="bg-[#4169e1] py-4 rounded-xl z-50 scale-[0.93]"
+          className="bg-[#4169e1] py-4 rounded-xl z-50"
         >
           <div className="w-[270px] h-[300px] ml-12" ref={backend}></div>
           <h1 className="px-8 text-3xl text-gray-200">Back-End</h1>
@@ -91,8 +89,7 @@ const Services = () => {
             <p className="font-light">
               Lorem ipsum dolor sit amet consectetur adipisicing elit.
               Asperiores neque ea recusandae, earum repudiandae, quisquam
-              voluptates nemo officia inventore voluptatum, hic sint at animi
-              minima sapiente? Necessitatibus debitis provident vero!
+              voluptates nemo officia inventore voluptatum.
             </p>
           </div>
         </motion.div>

@@ -12,6 +12,7 @@
 body {
   color: #fff;
   background-color: #04091e;
+  background-image: url(/bg-texture.png);
 }
 
 /* Testimonials */
@@ -55,6 +56,95 @@ body {
   border-radius: 50%;
   padding-top: 1rem;
   padding-bottom: 1rem;
+}
+
+/* Contact Us Page */
+.contact {
+  margin-top: 20px;
+}
+.me {
+  color: orange;
+}
+.container.contact__container {
+  display: grid;
+  grid-template-columns: 40% 58%;
+  width: 100%;
+}
+.contact h2 {
+  font-family: "Sirin Stencil", cursive;
+  margin-bottom: 1%;
+}
+.contact__options {
+  display: flex;
+  flex-direction: column;
+  width: max-content;
+  cursor: pointer;
+  gap: 1.5rem;
+}
+.contact__option {
+  background-color: transparent;
+  padding: 1.2rem;
+  border-radius: 1.2rem;
+  border: 1px solid #85c4f4;
+  transition: 0.3s;
+  box-shadow: 0 0 5px -1px;
+  text-align: center;
+}
+
+.contact__option:hover {
+  background: 0 0;
+  border-color: #00f;
+  box-shadow: 0 0 1px -1px;
+}
+.contact__option:hover .contact-icon {
+  transition: 0.6s;
+  transform: rotate(360deg);
+}
+.contact-icon {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  transform: rotate(1deg);
+  color: #fb7115;
+}
+.contact__option a {
+  margin-top: 0.7rem;
+  display: inline-block;
+  font-size: 0.8rem;
+  color: #fb7115b9;
+}
+.contact__option a:hover {
+  color: #fb7115;
+}
+.contact_form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+.contact_form input,
+.contact_form textarea {
+  width: 100%;
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+  background: #ffffff10;
+  border: 1px solid rgba(60, 60, 151, 0.479);
+  resize: none;
+  color: #fff;
+}
+.contact_form button {
+  border: none;
+  background-color: #fb7115;
+  color: #fff;
+  width: 30%;
+  padding: 3%;
+  border-radius: 5px;
+  margin-bottom: 15%;
+  transition: 0.5s;
+  font-size: 1rem;
+}
+.contact_form button:hover {
+  color: #0b52be;
+  background: #fff;
+  box-shadow: 0 0 4px 2px;
 }
 
 /* footer */
@@ -255,4 +345,20 @@ footer .bottom-details .bottom_text {
 }
 ::-webkit-scrollbar-thumb:hover {
   background: #555;
+}
+
+@media screen and (max-width: 1024px) {
+  .container.contact__container {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  .contact__options {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .container.contact__container {
+    width: 100%;
+  }
 }
