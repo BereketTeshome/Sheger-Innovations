@@ -65,7 +65,7 @@ const Services = () => {
           animate={isInView && { y: 0 }}
           initial={{ y: "100vh" }}
           transition={{ delay: 1.7, duration: 2, type: "spring" }}
-          className="bg-[#001f3f] py-4 rounded-xl z-50"
+          className="bg-[#001f3f] py-4 rounded-xl z-50 scale-105"
         >
           <div className="h-[300px]" ref={app}></div>
           <h1 className="px-8 text-3xl text-gray-200">App Development</h1>
