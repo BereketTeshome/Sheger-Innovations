@@ -1,13 +1,12 @@
+import React, { useEffect, useRef } from "react";
 import anime from "animejs";
-import melew from "../assets/melataw.jpg";
 import Testimonials from "../components/Testimonials";
-
-
-
+import lottie from "lottie-web";
+import aboutAnimation from "../assets/aboutAnimation.json";
 
 const Header = () => {
   return (
-    <div className="relative grid place-content-center bg-slate-950 py-11">
+    <div className="relative grid bg-transparent place-content-center py-11">
       <DotGrid />
     </div>
   );
@@ -17,8 +16,26 @@ const GRID_WIDTH = 50;
 const GRID_HEIGHT = 13;
 
 const DotGrid = () => {
-  const handleDotClick = (e) => {
-    anime({
+  const animeRef = useRef(null);
+  const isAnimatingRef = useRef(false);
+
+  useEffect(() => {
+    triggerAnimation({
+      target: {
+        dataset: {
+          index: Math.floor(Math.random() * (GRID_WIDTH * GRID_HEIGHT)),
+        },
+      },
+    });
+  }, []);
+
+  const triggerAnimation = (e) => {
+    if (animeRef.current) {
+      animeRef.current.pause();
+    }
+
+    isAnimatingRef.current = true;
+    animeRef.current = anime({
       targets: ".dot-point",
       scale: [
         { value: 1.35, easing: "easeOutSine", duration: 250 },
@@ -36,6 +53,9 @@ const DotGrid = () => {
         grid: [GRID_WIDTH, GRID_HEIGHT],
         from: e.target.dataset.index,
       }),
+      complete: () => {
+        isAnimatingRef.current = false;
+      },
     });
   };
 
@@ -46,12 +66,13 @@ const DotGrid = () => {
     for (let j = 0; j < GRID_HEIGHT; j++) {
       dots.push(
         <div
-          className="group cursor-crosshair rounded-full p-2 transition-colors hover:bg-slate-600"
+          className="p-2 transition-colors rounded-full group cursor-crosshair hover:bg-slate-600"
           data-index={index}
           key={`${i}-${j}`}
+          onClick={triggerAnimation}
         >
           <div
-            className="dot-point h-2 w-2 rounded-full bg-gradient-to-b from-slate-700 to-slate-400 opacity-50 group-hover:from-indigo-600 group-hover:to-white"
+            className="w-2 h-2 rounded-full opacity-50 dot-point bg-gradient-to-b from-green-400 via-blue-500 to-purple-600 group-hover:from-indigo-600 group-hover:to-white"
             data-index={index}
           />
         </div>
@@ -61,51 +82,82 @@ const DotGrid = () => {
   }
 
   return (
-    <div>
-      <div className=" relative flex flex-col items-center justify-center">
-        <div
-          onClick={handleDotClick}
-          style={{ gridTemplateColumns: `repeat(${GRID_WIDTH}, 1fr)` }}
-          className="grid w-fit z-20"
-        >
-          {dots}
-        </div>
-        <div className=" absolute top-0 z-50 h-full flex items-center flex-col justify-center">
-          <h2 className="z-50 text-6xl text-[#0AE585]">About Us</h2>
-          <br/>
-          <p className="text-sm font-extralight mb-2">We provide the best development environment for passionate engineers so that we</p>
-          <p className="text-sm font-extralight mb-2">can solve complex and <b className="text-[#0AE585]">Bereket likes suking DICK!!!</b></p>
-        </div>
+    <div className="relative flex flex-col items-center justify-center">
+      <div
+        style={{ gridTemplateColumns: `repeat(${GRID_WIDTH}, 1fr)` }}
+        className="grid z-2 w-fit"
+      >
+        {dots}
       </div>
-      
+      <div className="absolute top-0 z-10 flex flex-col items-center justify-center w-full h-full pointer-events-none">
+        <h2 className="text-6xl text-[#F57613] z-10">About Us</h2>
+        <br />
+        <p className="z-10 mb-2 text-sm font-light">
+          We provide the best development environment for passionate engineers
+          so that we
+        </p>
+        <p className="z-10 mb-2 text-sm font-light">
+          can solve complex problems
+        </p>
+      </div>
     </div>
-    
   );
-
 };
-const About = ()=>{
-  return(
+
+const About = () => {
+  const container = useRef(null);
+
+  useEffect(() => {
+    const animation = lottie.loadAnimation({
+      container: container.current,
+      renderer: "svg",
+      loop: true,
+      autoplay: true,
+      animationData: aboutAnimation,
+    });
+    return () => {
+      animation.destroy();
+    };
+  }, []);
+
+  return (
     <div>
-      <Header/>
-      <br/><br/><br/>
-      <div className="flex items-center gap-14 px-14">
-        <div>
-          <p className="text-sm font-thin mb-2">Our Company</p>
-          <h2 className="text-4xl text-[#0AE585] mb-2">We Provide Expert Development Service All Over The World</h2>
-          <p className="text-xs mb-2">We are passionate teams of engineers striving to solve intractable business problems in creative and pragmatic ways.</p>
-          <p className="text-xs mb-2">We believe meaningful value can be provided through long-term commitment. We don’t want to be an extension of your team, we strive to be a part of it, sharing your vision.</p>
-          <p className="text-xs mb-2">We take on business challenges, learn lessons, do self-improving, and always move forward to rise above them. Two things we value are ensuring a cultivating environment for our teams and the satisfaction of our clients.</p>
+      <Header />
+      <br />
+
+      <div className="flex items-center gap-14 px-14 mb-14">
+        <div className="w-[60%]">
+          <p className="mb-2 text-sm font-thin">Our Company</p>
+          <h2 className="text-3xl text-[#F57613] mb-2">
+            We Provide Expert Development Service All Over The World
+          </h2>
+          <p className="mb-2 text-xs">
+            We are passionate teams of engineers striving to solve intractable
+            business problems in creative and pragmatic ways.
+          </p>
+          <p className="mb-2 text-xs">
+            We believe meaningful value can be provided through long-term
+            commitment. We don’t want to be an extension of your team, we strive
+            to be a part of it, sharing your vision.
+          </p>
+          <p className="mb-2 text-xs">
+            We take on business challenges, learn lessons, do self-improving,
+            and always move forward to rise above them. Two things we value are
+            ensuring a cultivating environment for our teams and the
+            satisfaction of our clients.
+          </p>
         </div>
-        <div>
-          <img src={melew} alt="" className="rounded shadow-xl"/>
-        </div>
+        <div
+          className="flex justify-end"
+          ref={container}
+          style={{ width: "900px" }}
+        ></div>
       </div>
-      <br/><br/><br/><br/><br/>
       <div>
-        <Testimonials/>
+        <Testimonials />
       </div>
     </div>
-  )
-}
+  );
+};
 
 export default About;
