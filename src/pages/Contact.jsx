@@ -68,7 +68,7 @@ const DotGrid = () => {
     for (let j = 0; j < GRID_HEIGHT; j++) {
       dots.push(
         <div
-          className="p-2 transition-colors rounded-full group cursor-crosshair hover:bg-slate-600"
+          className="p-2 transition-colors rounded-full group cursor-pointer hover:bg-slate-600"
           data-index={index}
           key={`${i}-${j}`}
           onClick={triggerAnimation}
