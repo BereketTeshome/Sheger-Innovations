@@ -1,46 +1,30 @@
 export const projects = [
-
-
-
-
-
-
-
-    {
-        img: "https://merebtechnology.com/static/media/coca.470bcfe5d7715c04d970.jpg",
-        title: "Coca-Cola Family Trivia Challenge App",
-        desc: "A beautifully designed application to connect family member while having fun at Chinese Holiday. Has advanced face detection features to allow users easily interact and respond to questions by their movement. Funded by CocaCola",
-        icons: "",
-    },
-    {
-        img: "	https://merebtechnology.com/static/media/fifa.54e85da8ceb4bd018dcf.png",
-        title: "Coca-Cola Family Trivia Challenge App",
-        desc: "A beautifully designed application to connect family member while having fun at Chinese Holiday. Has advanced face detection features to allow users easily interact and respond to questions by their movement. Funded by CocaCola",
-        icons: "",
-    },
-    {
-        img: "	https://merebtechnology.com/static/media/nunet.f1db65c05a72397e8fe5.png",
-        title: "Coca-Cola Family Trivia Challenge App",
-        desc: "A beautifully designed application to connect family member while having fun at Chinese Holiday. Has advanced face detection features to allow users easily interact and respond to questions by their movement. Funded by CocaCola",
-        icons: "",
-    },
-    {
-        img: "https://merebtechnology.com/static/media/block.303ae90053baaf093371.png",
-        title: "Coca-Cola Family Trivia Challenge App",
-        desc: "A beautifully designed application to connect family member while having fun at Chinese Holiday. Has advanced face detection features to allow users easily interact and respond to questions by their movement. Funded by CocaCola",
-        icons: "",
-    },
-    {
-        img: "https://merebtechnology.com/static/media/htv-meansdone-01.35c689ec6aa369196c24.png",
-        title: "Coca-Cola Family Trivia Challenge App",
-        desc: "A beautifully designed application to connect family member while having fun at Chinese Holiday. Has advanced face detection features to allow users easily interact and respond to questions by their movement. Funded by CocaCola",
-        icons: "",
-    },
-    {
-        img: "	https://merebtechnology.com/static/media/vin.ccf664131bab6f6d03f7.jpg",
-        title: "Coca-Cola Family Trivia Challenge App",
-        desc: "A beautifully designed application to connect family member while having fun at Chinese Holiday. Has advanced face detection features to allow users easily interact and respond to questions by their movement. Funded by CocaCola",
-        icons: "",
-    }
-    
-]
+  {
+    img: "/public/DreamHome.PNG",
+    title: "Dream Home",
+    desc: "Dream-Home is a real-estate website with comprehensive platform designed to help users find their dream properties. It offers a user-friendly interface and a wide range of features to make the property search process efficient and enjoyable. The website is built using the MERN stack (MongoDB, Express.js, React.js, and Node.js), ensuring a modern and intuitive user experience.",
+    link: "https://dream-home-client.vercel.app/",
+    icons: "",
+  },
+  {
+    img: "/public/medicare.png",
+    title: "Medicare",
+    desc: "Welcome to our doctors appointment website, where you can easily schedule and manage your medical appointments with just a few clicks. Our user-friendly platform allows you to search for available doctors, view their profiles, and book appointments at your convenience. The website is built using the MERN stack (MongoDB, Express.js, React.js, and Node.js), ensuring a modern and intuitive user experience.",
+    link: "https://doctors-appointment-azure.vercel.app",
+    icons: "",
+  },
+  {
+    img: "/public/Flix_Details.PNG",
+    title: "Ethio-Flix",
+    desc: "This movie website made by MERN stack is a comprehensive platform for all movie enthusiasts. It offers a wide range of features and functionalities, including a vast collection of movies, TV shows, and documentaries that users can browse through and watch. The website is built on the MERN stack, which means it uses MongoDB, Express, React, and Node.js to provide a seamless and responsive experience for users. With its intuitive interface and easy-to-use navigation, the website allows users to search for their favorite movies and TV shows, read reviews, and even leave their own comments. Whether you're a casual moviegoer or a die-hard cinephile, this website has something for everyone.",
+    link: "https://ethio-flix.vercel.app/",
+    icons: "",
+  },
+  {
+    img: "https://merebtechnology.com/static/media/nunet.f1db65c05a72397e8fe5.png",
+    title: "E-Commerce",
+    desc: "A beautifully designed application to connect family member while having fun at Chinese Holiday. Has advanced face detection features to allow users easily interact and respond to questions by their movement. Funded by CocaCola",
+    link: "hdkehdklw",
+    icons: "",
+  },
+];
