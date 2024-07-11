@@ -11,7 +11,7 @@ const Navbar = () => {
       </div>
 
       <nav>
-        <ul className="flex gap-4">
+        <ul className="flex gap-4 text-sm">
           <li className="transition-all hover:text-orange-300">
             <Link to="/">Home</Link>
           </li>

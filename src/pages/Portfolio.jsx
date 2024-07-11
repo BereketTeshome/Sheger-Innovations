@@ -1,10 +1,8 @@
 import React, { useEffect, useRef } from "react";
 import anime from "animejs";
 import { projects } from "../assets/projects";
-
-
-
-
+import { Link } from "react-router-dom";
+import { motion, useInView } from "framer-motion";
 
 const Header = () => {
   return (
@@ -68,7 +66,7 @@ const DotGrid = () => {
     for (let j = 0; j < GRID_HEIGHT; j++) {
       dots.push(
         <div
-          className="p-2 transition-colors rounded-full group cursor-pointer hover:bg-slate-600"
+          className="p-2 transition-colors rounded-full cursor-pointer group hover:bg-slate-600"
           data-index={index}
           key={`${i}-${j}`}
           onClick={triggerAnimation}
@@ -95,7 +93,8 @@ const DotGrid = () => {
         <h2 className="text-6xl text-[#F57613] z-10">Portfolio</h2>
         <br />
         <p className="z-10 mb-2 text-sm font-light">
-          We make fast loading, friction removing, problem-solving products that get used
+          We make fast loading, friction removing, problem-solving products that
+          get used
         </p>
         <p className="z-10 mb-2 text-sm font-light">
           by thousands of people on a daily basis.
@@ -105,30 +104,49 @@ const DotGrid = () => {
   );
 };
 
-
 const Portfolio = () => {
+  const view = useRef();
+  const isInView = useInView(view, { margin: "-100px" });
 
-  return <div className="max-w-screen-xl mx-auto">
-    <Header/>
-    <br />
-    <div>
-      <div className="grid grid-cols-3 gap-8 px-10">
-        {
-          projects.map((item, index)=>{
-            return <div key={index} className="bg-[#001f3f] rounded overflow-hidden shadow-lg shadow-gray-950">
-              <div className="">
-                <img src={item.img} alt={item.title} className=" aspect-[1.8/1]"/>
-              </div>
-              <div className="p-4">
-                <h3 className="text-xl mb-4">{item.title}</h3>
-                <p className="text-xs text-gray-400">{item.desc}</p>
-              </div>
-            </div>
-          })
-        }
+  return (
+    <div className="max-w-screen-xl mx-auto">
+      <Header />
+
+      <div ref={view}>
+        <div className="grid grid-cols-3 gap-8 px-10 mt-20">
+          {projects.map((item, index) => {
+            return (
+              <Link to={item.link} target="_blank">
+                <motion.div
+                  key={index}
+                  className="bg-[#001f3f] rounded-lg hover:scale-105 duration-200 overflow-hidden shadow-lg shadow-gray-950"
+                  initial={{ opacity: 0 }}
+                  animate={isInView && { opacity: 1 }}
+                  transition={{ duration: 2, delay: 1 }}
+                >
+                  <div>
+                    <img
+                      src={item.img}
+                      alt={item.title}
+                      className=" aspect-[1.8/1]"
+                    />
+                  </div>
+                  <div className="p-4">
+                    <h3 className="mb-4 text-xl">{item.title}</h3>
+                    <p className="text-xs text-gray-400">
+                      {item.desc.length < 400
+                        ? item.desc
+                        : `${item.desc.substring(0, 400)}...`}
+                    </p>
+                  </div>
+                </motion.div>
+              </Link>
+            );
+          })}
+        </div>
       </div>
     </div>
-  </div>;
+  );
 };
 
 export default Portfolio;

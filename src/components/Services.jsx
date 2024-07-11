@@ -43,8 +43,8 @@ const Services = () => {
       className="w-full bg-[#04091E] px-8 max-w-screen-xl mx-auto mb-52 overflow-hidden"
       ref={view}
     >
-      <h1 className="text-6xl text-center mb-20">Our Services</h1>
-      <motion.div className=" grid grid-cols-3 mx-auto w-full gap-10">
+      <h1 className="mb-20 text-6xl text-center">Our Services</h1>
+      <motion.div className="grid w-full grid-cols-3 gap-10 mx-auto ">
         <motion.div
           animate={isInView && { x: 0 }}
           initial={{ x: "-100vw" }}

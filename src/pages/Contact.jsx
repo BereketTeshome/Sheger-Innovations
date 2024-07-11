@@ -153,7 +153,6 @@ const Contact = () => {
       <div className="container contact__container">
         <div className="flex flex-col items-center contact__options">
           <div className="" ref={container}></div>
-
           <div className="flex gap-6">
             <a href="mailto:shegerinnovations@gmail.com" target="_blank">
               <article className="contact__option">
