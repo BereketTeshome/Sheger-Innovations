@@ -122,7 +122,7 @@ const Portfolio = () => {
                   className="bg-[#001f3f] rounded-lg hover:scale-105 duration-200 overflow-hidden shadow-lg shadow-gray-950"
                   initial={{ opacity: 0 }}
                   animate={isInView && { opacity: 1 }}
-                  transition={{ duration: 2, delay: 1 }}
+                  transition={{ duration: 2 }}
                 >
                   <div>
                     <img
@@ -134,10 +134,29 @@ const Portfolio = () => {
                   <div className="p-4">
                     <h3 className="mb-4 text-xl">{item.title}</h3>
                     <p className="text-xs text-gray-400">
-                      {item.desc.length < 400
+                      {item.desc.length < 230
                         ? item.desc
-                        : `${item.desc.substring(0, 400)}...`}
+                        : `${item.desc.substring(0, 230)}...`}
                     </p>
+                  </div>
+                  <div
+                    className="flex max-h-20 justify-between py-2 px-5 border-t-2 border-teal-900 items-center"
+                    key={index}
+                  >
+                    {item.icons.map((icon, index) => {
+                      return (
+                        <div
+                          className="h-10 w-10 aspect-w-1 aspect-h-1"
+                          key={index}
+                        >
+                          <img
+                            className="object-contain h-full w-full"
+                            src={icon.src}
+                            alt={icon.alt}
+                          />
+                        </div>
+                      );
+                    })}
                   </div>
                 </motion.div>
               </Link>
