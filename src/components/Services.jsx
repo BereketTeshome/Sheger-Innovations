@@ -6,93 +6,86 @@ import appAnimation from "../assets/app.json";
 import backendAnimation from "../assets/backend.json";
 
 const Services = () => {
-  const frontend = useRef(null);
-  const app = useRef(null);
-  const backend = useRef(null);
   const view = useRef();
   const isInView = useInView(view);
 
+  const servicesData = [
+    {
+      ref: useRef(null),
+      animation: frontendAnimation,
+      bgColor: "bg-[#4169e1]",
+      title: "Front-End",
+      delay: 0.3,
+      initial: { x: "-100vw" },
+      description:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores neque ea recusandae, earum repudiandae, quisquam voluptates nemo officia inventore voluptatum.",
+      size: { width: "w-[230px]", height: "h-[300px]", marginLeft: "ml-16" },
+    },
+    {
+      ref: useRef(null),
+      animation: appAnimation,
+      bgColor: "bg-[#001f3f]",
+      title: "App Development",
+      delay: 1.4,
+      initial: { y: "100vh" },
+      description:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores neque ea recusandae, earum repudiandae, quisquam voluptates nemo officia inventore voluptatum.",
+      size: { width: "w-[350px]", height: "h-[300px]" },
+    },
+    {
+      ref: useRef(null),
+      animation: backendAnimation,
+      bgColor: "bg-[#4169e1]",
+      title: "Back-End",
+      delay: 0.7,
+      initial: { x: "100vw" },
+      description:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores neque ea recusandae, earum repudiandae, quisquam voluptates nemo officia inventore voluptatum.",
+      size: { width: "w-[270px]", height: "h-[300px]", marginLeft: "ml-12" },
+    },
+  ];
+
   useEffect(() => {
-    lottie.loadAnimation({
-      container: frontend.current,
-      renderer: "svg",
-      loop: true,
-      autoplay: true,
-      animationData: frontendAnimation,
+    servicesData.forEach((service) => {
+      lottie.loadAnimation({
+        container: service.ref.current,
+        renderer: "svg",
+        loop: true,
+        autoplay: true,
+        animationData: service.animation,
+      });
     });
-    lottie.loadAnimation({
-      container: app.current,
-      renderer: "svg",
-      loop: true,
-      autoplay: true,
-      animationData: appAnimation,
-    });
-    lottie.loadAnimation({
-      container: backend.current,
-      renderer: "svg",
-      loop: true,
-      autoplay: true,
-      animationData: backendAnimation,
-    });
+
     return () => {
       lottie.destroy();
     };
   }, []);
+
   return (
     <main
       className="w-full bg-[#04091E] px-8 max-w-screen-xl mx-auto mb-52 overflow-hidden"
       ref={view}
     >
       <h1 className="mb-20 text-6xl text-center">Our Services</h1>
-      <motion.div className="grid w-full grid-cols-3 gap-10 mx-auto ">
-        <motion.div
-          animate={isInView && { x: 0 }}
-          initial={{ x: "-100vw" }}
-          transition={{ delay: 0.3, duration: 2, type: "spring" }}
-          className="bg-[#4169e1] py-4 rounded-xl z-50"
-        >
-          <div className="w-[270px] h-[280px] ml-10 mb-9" ref={frontend}></div>
-          <h1 className="px-8 text-3xl text-gray-200">Front-End</h1>
-          <div className="px-8 mt-4 text-gray-200">
-            <p className="font-light">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Asperiores neque ea recusandae, earum repudiandae, quisquam
-              voluptates nemo officia inventore voluptatum.
-            </p>
-          </div>
-        </motion.div>
-        <motion.div
-          animate={isInView && { y: 0 }}
-          initial={{ y: "100vh" }}
-          transition={{ delay: 1.7, duration: 2, type: "spring" }}
-          className="bg-[#001f3f] py-4 rounded-xl z-50 scale-105"
-        >
-          <div className="h-[300px]" ref={app}></div>
-          <h1 className="px-8 text-3xl text-gray-200">App Development</h1>
-          <div className="px-8 mt-4 text-gray-200">
-            <p className="font-light">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Asperiores neque ea recusandae, earum repudiandae, quisquam
-              voluptates nemo officia inventore voluptatum.
-            </p>
-          </div>
-        </motion.div>
-        <motion.div
-          animate={isInView && { x: 0 }}
-          initial={{ x: "100vw" }}
-          transition={{ delay: 0.7, duration: 2, type: "spring" }}
-          className="bg-[#4169e1] py-4 rounded-xl z-50"
-        >
-          <div className="w-[270px] h-[300px] ml-12" ref={backend}></div>
-          <h1 className="px-8 text-3xl text-gray-200">Back-End</h1>
-          <div className="px-8 mt-4 text-gray-200">
-            <p className="font-light">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Asperiores neque ea recusandae, earum repudiandae, quisquam
-              voluptates nemo officia inventore voluptatum.
-            </p>
-          </div>
-        </motion.div>
+      <motion.div className="grid w-full grid-cols-3 gap-10 mx-auto">
+        {servicesData.map((service, index) => (
+          <motion.div
+            key={index}
+            animate={isInView && { ...service.initial, x: 0, y: 0 }}
+            initial={service.initial}
+            transition={{ delay: service.delay, duration: 2, type: "spring" }}
+            className={`${service.bgColor} py-4 rounded-xl z-50`}
+          >
+            <div
+              className={`${service.size.width} ${service.size.height} ${service.size.marginLeft} mb-9`}
+              ref={service.ref}
+            ></div>
+            <h1 className="px-8 text-3xl text-gray-200">{service.title}</h1>
+            <div className="px-8 mt-4 text-gray-200">
+              <p className="font-light">{service.description}</p>
+            </div>
+          </motion.div>
+        ))}
       </motion.div>
     </main>
   );
