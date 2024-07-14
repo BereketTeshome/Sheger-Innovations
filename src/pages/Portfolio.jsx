@@ -92,11 +92,11 @@ const DotGrid = () => {
       <div className="absolute top-0 z-10 flex flex-col items-center justify-center w-full h-full pointer-events-none">
         <h2 className="text-6xl text-[#F57613] z-10">Portfolio</h2>
         <br />
-        <p className="z-10 mb-2 text-sm font-light">
+        <p className="z-10 mb-2 text-sm ">
           We make fast loading, friction removing, problem-solving products that
           get used
         </p>
-        <p className="z-10 mb-2 text-sm font-light">
+        <p className="z-10 mb-2 text-sm ">
           by thousands of people on a daily basis.
         </p>
       </div>

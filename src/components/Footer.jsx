@@ -13,7 +13,6 @@ const Footer = () => {
       <div class="content">
         <div class="top flex items-center">
           <div class="logo-details">
-            <i class="fab fa-slack"></i>
             <img src="./Logo.png" alt="footer logo" className="max-w-36" />
           </div>
           <div class="media-icons">
