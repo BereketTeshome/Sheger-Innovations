@@ -20,12 +20,7 @@ const Particle = () => {
         init={particlesInit}
         loaded={particlesLoaded}
         options={{
-          background: {
-            // color: {
-            //   value: "#04091e",
-            // },
-          },
-          fpsLimit: 120,
+          fpsLimit: 1000,
           interactivity: {
             events: {
               onClick: {
@@ -43,8 +38,8 @@ const Particle = () => {
                 quantity: 2,
               },
               repulse: {
-                distance: 110,
-                duration: 0.9,
+                distance: 120,
+                duration: 9,
               },
             },
           },
@@ -54,7 +49,7 @@ const Particle = () => {
             },
             links: {
               color: "#ffffff",
-              distance: 140,
+              distance: 150,
               enable: true,
               opacity: 0.5,
               width: 1,
@@ -66,7 +61,7 @@ const Particle = () => {
                 default: "bounce",
               },
               random: false,
-              speed: 2.5,
+              speed: 2,
               straight: false,
             },
             number: {

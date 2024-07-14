@@ -3,6 +3,7 @@ import anime from "animejs";
 import Testimonials from "../components/Testimonials";
 import lottie from "lottie-web";
 import aboutAnimation from "../assets/aboutAnimation.json";
+import WhyChooseUs from "../components/WhyChooseUs";
 
 const Header = () => {
   return (
@@ -152,6 +153,9 @@ const About = () => {
           ref={container}
           style={{ width: "900px" }}
         ></div>
+      </div>
+      <div>
+        <WhyChooseUs />
       </div>
       <div>
         <Testimonials />

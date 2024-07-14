@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
 import { motion, useInView } from "framer-motion";
-import lottie from "lottie-web";
+import { loadAnimation, destroy } from "lottie-web";
 import frontendAnimation from "../assets/frontend2.json";
 import appAnimation from "../assets/app.json";
 import backendAnimation from "../assets/backend.json";
@@ -47,7 +47,7 @@ const Services = () => {
 
   useEffect(() => {
     servicesData.forEach((service) => {
-      lottie.loadAnimation({
+      loadAnimation({
         container: service.ref.current,
         renderer: "svg",
         loop: true,
@@ -57,7 +57,7 @@ const Services = () => {
     });
 
     return () => {
-      lottie.destroy();
+      destroy();
     };
   }, []);
 
