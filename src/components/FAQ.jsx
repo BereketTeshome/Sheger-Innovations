@@ -7,21 +7,20 @@ const FAQ = () => {
   const isInView = useInView(viewH1);
 
   return (
-    <div className="overflow-hidden">
+    <div className="overflow-hidden px-5" ref={viewH1}>
       <motion.h1
-        className="mb-10 text-6xl text-center"
+        className="mb-10 text-4xl sm:text-5xl md:text-6xl text-center px-2"
         initial={{ x: 1000 }}
         animate={isInView && { x: 0 }}
         transition={{
           delay: 0,
           duration: 1,
         }}
-        ref={viewH1}
       >
         Frequently Asked Questions
       </motion.h1>
       <motion.div
-        className="px-8 py-5 bg-[#001F3F] rounded-lg max-w-screen-xl mx-auto mb-28"
+        className="sm:px-8 px-3 text-sm sm:text-[14px] py-5 bg-[#001F3F] rounded-lg max-w-screen-xl mx-auto mb-28"
         initial={{ x: -1000 }}
         animate={isInView && { x: 0 }}
         transition={{

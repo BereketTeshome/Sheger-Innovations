@@ -10,12 +10,12 @@ import {
 const Footer = () => {
   return (
     <footer>
-      <div class="content">
-        <div class="top flex items-center">
-          <div class="logo-details">
+      <div className="content">
+        <div className="top flex items-center flex-col sm:flex-row">
+          <div className="logo-details">
             <img src="./Logo.png" alt="footer logo" className="max-w-36" />
           </div>
-          <div class="media-icons">
+          <div className="media-icons">
             <a href="#">
               <FaFacebookF className="relative top-[10px] left-2.5" />
             </a>
@@ -33,9 +33,9 @@ const Footer = () => {
             </a>
           </div>
         </div>
-        <div class="link-boxes">
-          <ul class="box">
-            <li class="link_name">Links</li>
+        <div className="link-boxes flex flex-wrap">
+          <ul className="box">
+            <li className="link_name">Links</li>
             <li>
               <a href="/">Home</a>
             </li>

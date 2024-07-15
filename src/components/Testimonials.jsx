@@ -57,7 +57,7 @@ export default function App() {
   return (
     <>
       <h1 className="mb-6 text-2xl text-center">Testimonials</h1>
-      <h1 className="text-6xl text-center">What Our Clients Say</h1>
+      <h1 className="text-4xl sm:text-5xl md:text-6xl px-2 text-center">What Our Clients Say</h1>
       <Swiper
         ref={swiperRef}
         effect={"coverflow"}

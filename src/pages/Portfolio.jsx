@@ -82,7 +82,7 @@ const DotGrid = () => {
   }
 
   return (
-    <div className="relative flex flex-col items-center justify-center">
+    <div className="relative flex flex-col items-center justify-center overflow-hidden">
       <div
         style={{ gridTemplateColumns: `repeat(${GRID_WIDTH}, 1fr)` }}
         className="grid z-2 w-fit"
@@ -90,13 +90,13 @@ const DotGrid = () => {
         {dots}
       </div>
       <div className="absolute top-0 z-10 flex flex-col items-center justify-center w-full h-full pointer-events-none">
-        <h2 className="text-6xl text-[#F57613] z-10">Portfolio</h2>
+        <h2 className="text-5xl md:text-6xl text-[#F57613] z-10">Portfolio</h2>
         <br />
-        <p className="z-10 mb-2 text-sm ">
+        <p className="z-10 mb-2 sm:text-sm text-xs text-center">
           We make fast loading, friction removing, problem-solving products that
           get used
         </p>
-        <p className="z-10 mb-2 text-sm ">
+        <p className="z-10 mb-2 sm:text-sm text-xs">
           by thousands of people on a daily basis.
         </p>
       </div>
@@ -113,7 +113,7 @@ const Portfolio = () => {
       <Header />
 
       <div ref={view}>
-        <div className="grid grid-cols-3 gap-8 px-10 mt-20">
+        <div className="grid lg:grid-cols-3 md:grid-cols-2  gap-8 px-6 sm:px-10 mt-20">
           {projects.map((item, index) => {
             return (
               <Link to={item.link} target="_blank">
@@ -134,9 +134,9 @@ const Portfolio = () => {
                   <div className="p-4">
                     <h3 className="mb-4 text-xl">{item.title}</h3>
                     <p className="text-xs text-gray-400">
-                      {item.desc.length < 230
+                      {item.desc.length < 222
                         ? item.desc
-                        : `${item.desc.substring(0, 230)}...`}
+                        : `${item.desc.substring(0, 222)}...`}
                     </p>
                   </div>
                   <div

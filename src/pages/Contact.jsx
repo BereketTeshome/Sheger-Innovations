@@ -84,7 +84,7 @@ const DotGrid = () => {
   }
 
   return (
-    <div className="relative flex flex-col items-center justify-center">
+    <div className="relative flex flex-col items-center justify-center overflow-hidden">
       <div
         style={{ gridTemplateColumns: `repeat(${GRID_WIDTH}, 1fr)` }}
         className="grid z-2 w-fit"
@@ -92,11 +92,11 @@ const DotGrid = () => {
         {dots}
       </div>
       <div className="absolute top-0 z-10 flex flex-col items-center justify-center w-full h-full pointer-events-none">
-        <h2 className="text-6xl text-[#F57613] z-10">Contact Us</h2>
+        <h2 className="text-5xl sm:text-6xl text-[#F57613] z-10">Contact Us</h2>
         <br />
         <header className="mb-8 text-center ">
-          <h2 className="text-4xl font-bold">We're Here to Help</h2>
-          <p className="mt-2 text-lg text-gray-300">
+          <h2 className="md:text-4xl text-3xl font-bold">We're Here to Help</h2>
+          <p className="mt-2 md:text-lg text-gray-300 sm:text-sm text-xs text-center">
             Feel free to reach out to us with any questions or concerns. We're
             always here to assist you!
           </p>
@@ -147,10 +147,10 @@ const Contact = () => {
   };
 
   return (
-    <section className="max-w-screen-xl px-10 mx-auto contact">
+    <section className="max-w-screen-xl mx-auto contact">
       <Header />
 
-      <div className="container contact__container">
+      <div className="container contact__container px-10">
         <div className="flex flex-col items-center contact__options">
           <div className="" ref={container}></div>
           <div className="flex gap-6">

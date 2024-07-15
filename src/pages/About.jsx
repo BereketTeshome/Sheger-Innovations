@@ -83,7 +83,7 @@ const DotGrid = () => {
   }
 
   return (
-    <div className="relative flex flex-col items-center justify-center">
+    <div className="relative flex flex-col items-center justify-center overflow-hidden">
       <div
         style={{ gridTemplateColumns: `repeat(${GRID_WIDTH}, 1fr)` }}
         className="grid z-2 w-fit"
@@ -91,13 +91,13 @@ const DotGrid = () => {
         {dots}
       </div>
       <div className="absolute top-0 z-10 flex flex-col items-center justify-center w-full h-full pointer-events-none">
-        <h2 className="text-6xl text-[#F57613] z-10">About Us</h2>
+        <h2 className="text-5xl md:text-6xl text-[#F57613] z-10">About Us</h2>
         <br />
-        <p className="z-10 mb-2 text-sm font-light">
+        <p className="z-10 mb-2 sm:text-sm sm:px-0 text-xs text-center">
           We provide the best development environment for passionate engineers
           so that we
         </p>
-        <p className="z-10 mb-2 text-sm font-light">
+        <p className="z-10 mb-2 sm:text-sm text-xs font-light">
           can solve complex problems
         </p>
       </div>
@@ -126,10 +126,10 @@ const About = () => {
       <Header />
       <br />
 
-      <div className="flex items-center gap-14 px-14 mb-14">
-        <div className="w-[60%]">
+      <div className="flex items-center gap-14 px-8 sm:px-14 mb-14 flex-col md:flex-row max-w-screen-xl mx-auto">
+        <div className="lg:w-[60%] md:w-[95%] text-center md:text-left">
           <p className="mb-2 text-sm font-thin">Our Company</p>
-          <h2 className="text-3xl text-[#F57613] mb-2">
+          <h2 className="text-2xl sm:text-3xl text-[#F57613] mb-2">
             We Provide Expert Development Service All Over The World
           </h2>
           <p className="mb-2 text-xs">
@@ -149,9 +149,9 @@ const About = () => {
           </p>
         </div>
         <div
-          className="flex justify-end"
+          className="flex justify-end md:w-[900px]"
           ref={container}
-          style={{ width: "900px" }}
+          // style={{ width: "900px" }}
         ></div>
       </div>
       <div>

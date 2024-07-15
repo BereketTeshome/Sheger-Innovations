@@ -19,7 +19,7 @@ const Services = () => {
       initial: { x: "-100vw" },
       description:
         "Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores neque ea recusandae, earum repudiandae, quisquam voluptates nemo officia inventore voluptatum.",
-      size: { width: "w-[230px]", height: "h-[300px]", marginLeft: "ml-16" },
+      size: { width: "w-[230px]", height: "h-[300px]", marginLeft: "sm:ml-16" },
     },
     {
       ref: useRef(null),
@@ -30,7 +30,7 @@ const Services = () => {
       initial: { y: "100vh" },
       description:
         "Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores neque ea recusandae, earum repudiandae, quisquam voluptates nemo officia inventore voluptatum.",
-      size: { width: "w-[350px]", height: "h-[300px]" },
+      size: { width: "sm:w-[350px] w-[230px]", height: "h-[300px]" },
     },
     {
       ref: useRef(null),
@@ -41,7 +41,7 @@ const Services = () => {
       initial: { x: "100vw" },
       description:
         "Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores neque ea recusandae, earum repudiandae, quisquam voluptates nemo officia inventore voluptatum.",
-      size: { width: "w-[270px]", height: "h-[300px]", marginLeft: "ml-12" },
+      size: { width: "sm:w-[270px] w-[230px]", height: "h-[300px]", marginLeft: "md:ml-12" },
     },
   ];
 
@@ -63,11 +63,11 @@ const Services = () => {
 
   return (
     <main
-      className="w-full bg-[#04091E] px-8 max-w-screen-xl mx-auto mb-52 overflow-hidden"
+      className="w-full bg-[#04091E] sm:px-8 px-5 max-w-screen-xl mx-auto md:mb-52 mb-28 overflow-hidden"
       ref={view}
     >
-      <h1 className="mb-20 text-6xl text-center">Our Services</h1>
-      <motion.div className="grid w-full grid-cols-3 gap-10 mx-auto">
+      <h1 className="mb-20 text-4xl sm:text-5xl md:text-6xl text-center">Our Services</h1>
+      <motion.div className="grid w-full lg:grid-cols-3 md:grid-cols-2 md:text-left text-center gap-10 mx-auto md:px-0 sm:px-20">
         {servicesData.map((service, index) => (
           <motion.div
             key={index}
@@ -77,12 +77,12 @@ const Services = () => {
             className={`${service.bgColor} py-4 rounded-xl z-50`}
           >
             <div
-              className={`${service.size.width} ${service.size.height} ${service.size.marginLeft} mb-9`}
+              className={`${service.size.height} ${service.size.marginLeft} mb-9`}
               ref={service.ref}
             ></div>
-            <h1 className="px-8 text-3xl text-gray-200">{service.title}</h1>
-            <div className="px-8 mt-4 text-gray-200">
-              <p className="font-light">{service.description}</p>
+            <h1 className="sm:px-8 px-2 text-3xl text-gray-200">{service.title}</h1>
+            <div className="sm:px-8 px-2 mt-4 text-gray-200">
+              <p className="font-light text-sm sm:text-[14px]">{service.description}</p>
             </div>
           </motion.div>
         ))}
