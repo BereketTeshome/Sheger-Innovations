@@ -6,12 +6,16 @@ const Navbar = () => {
     <header className="flex items-center justify-between w-full max-w-screen-xl px-4 mx-auto">
       <div>
         <Link to="/">
-          <img src={LOGO} alt="logo" className="max-w-[10rem]" />
+          <img
+            src={LOGO}
+            alt="logo"
+            className="max-w-[10rem] w-[100px] md:w-[10rem]"
+          />
         </Link>
       </div>
 
       <nav>
-        <ul className="flex gap-4 text-sm">
+        <ul className="flex gap-2 text-sm md:gap-4">
           <li className="transition-all hover:text-orange-300">
             <Link to="/">Home</Link>
           </li>

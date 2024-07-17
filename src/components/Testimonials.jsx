@@ -26,38 +26,33 @@ export default function App() {
   const slides = [
     {
       quote:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum nesciunt itaque amet error aliquam neque libero dolor mollitia perspiciatis consectetur.",
-      image: "/Eyosias.jpg",
+        "I had the pleasure of working with Sheger Innovations on our project, and the experience was exceptional from start to finish. Their team had a deep understanding of our needs and delivered a well designed, user-friendly website.",
+      image: "/profile.png",
       name: "Eyosias",
       title: "CEO, Erkab Consulting",
     },
     {
       quote:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum nesciunt itaque amet error aliquam neque libero dolor mollitia perspiciatis consectetur.",
-      image: "/Yibeltal.png",
+        "Sheger Innovations transformed our outdated website into a modern, sleek, and user-friendly platform. The team was fantastic to work with, delivering on time and within budget. Highly recommended",
+      image: "/profile.png",
       name: "Yibeltal",
       title: "Entrepreneur",
     },
     {
       quote:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum nesciunt itaque amet error aliquam neque libero dolor mollitia perspiciatis consectetur.",
-      image: "/Dagim.png",
-      name: "Dagim",
-      title: "CTO, Erkab Consulting",
-    },
-    {
-      quote:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum nesciunt itaque amet error aliquam neque libero dolor mollitia perspiciatis consectetur.",
-      image: "/Alemfire.png",
-      name: "Alemfire",
-      title: "Janitor",
+        "Working with Sheger Innovations was a breeze. They quickly understood our vision and created a website that perfectly aligns with our brand. Their professionalism and expertise are top-notch",
+      image: "/profile.png",
+      name: "Sisay",
+      title: "CEO, AHAZ Pharma",
     },
   ];
 
   return (
     <>
       <h1 className="mb-6 text-2xl text-center">Testimonials</h1>
-      <h1 className="text-4xl sm:text-5xl md:text-6xl px-2 text-center">What Our Clients Say</h1>
+      <h1 className="px-2 text-4xl text-center sm:text-5xl md:text-6xl">
+        What Our Clients Say
+      </h1>
       <Swiper
         ref={swiperRef}
         effect={"coverflow"}
@@ -82,16 +77,16 @@ export default function App() {
               className="swiper-quote"
               alt="right-quote.png"
             />
-            <i>{slide.quote}</i>
+            <i>{slide?.quote}</i>
             <div className="flex items-center mt-4 gap-7">
               <img
-                src={slide.image}
-                alt={slide.name}
+                src={slide?.image}
+                alt={slide?.name}
                 className="testimonial-img"
               />
               <div>
-                <h2>{slide.name}</h2>
-                <p>{slide.title}</p>
+                <h2>{slide?.name}</h2>
+                <p>{slide?.title}</p>
               </div>
             </div>
           </SwiperSlide>

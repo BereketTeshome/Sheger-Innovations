@@ -196,20 +196,19 @@ footer .content .top {
   background: #fff;
 }
 .top .media-icons a:nth-child(5) {
-  background: #ff0000;
+  background: #fff;
+  color: #000;
 }
 .top .media-icons a:nth-child(5):hover {
-  color: #ff0000;
-  background: #fff;
+  color: #fff;
+  background: #000;
 }
 footer .content .link-boxes {
   width: 100%;
   display: flex;
   justify-content: space-between;
 }
-footer .content .link-boxes .box {
-  width: calc(100% / 5 - 10px);
-}
+
 .content .link-boxes .box .link_name {
   color: #fff;
   font-size: 18px;
@@ -261,20 +260,7 @@ footer .content .link-boxes .box {
   color: #fff;
   font-size: 16px;
 }
-.link-boxes .input-box input[type="button"] {
-  background: #fff;
-  color: #f96106;
-  border: none;
-  font-size: 18px;
-  font-weight: 500;
-  margin: 4px 0;
-  opacity: 0.8;
-  cursor: pointer;
-  transition: all 0.4s ease;
-}
-.input-box input[type="button"]:hover {
-  opacity: 1;
-}
+
 footer .bottom-details {
   width: 100%;
   background: #01041d;
@@ -284,7 +270,7 @@ footer .bottom-details .bottom_text {
   margin: auto;
   padding: 20px 40px;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
 }
 .bottom-details .bottom_text span,
 .bottom-details .bottom_text a {
@@ -326,9 +312,67 @@ footer .bottom-details .bottom_text {
     width: 100%;
   }
 }
+@media screen and (max-width: 900px) {
+  footer .content .link-boxes {
+    flex-wrap: wrap;
+  }
+  footer .content .link-boxes .input-box {
+    width: 40%;
+    margin-top: 10px;
+  }
+}
+@media screen and (max-width: 750px) {
+  .content .top .logo-details {
+    font-size: 26px;
+  }
+  .content .top .media-icons a {
+    height: 35px;
+    width: 35px;
+    font-size: 14px;
+    line-height: 35px;
+  }
+  footer .content .link-boxes .box {
+    width: calc(100% / 3 - 10px);
+  }
+  footer .content .link-boxes .input-box {
+    width: 60%;
+  }
+  .bottom-details .bottom_text span,
+  .bottom-details .bottom_text a {
+    font-size: 12px;
+  }
+}
 
 @media screen and (max-width: 600px) {
   .container.contact__container {
     width: 100%;
+  }
+}
+
+@media (max-width: 520px) {
+  footer::before {
+    top: 145px;
+  }
+  footer .content .top {
+    flex-direction: column;
+  }
+  .content .top .media-icons {
+    margin-top: 7px;
+  }
+  footer .content .link-boxes .box {
+    width: calc(100% / 2 - 10px);
+  }
+  footer .content .link-boxes .input-box {
+    width: 100%;
+  }
+}
+@media (max-width: 415px) {
+  footer .content {
+    max-width: 1280px;
+    margin: auto;
+    padding: 10px 1px 15px 5px;
+  }
+  .footer-desc {
+    padding: 10px;
   }
 }
