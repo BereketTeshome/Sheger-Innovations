@@ -1,9 +1,10 @@
-import React, { useEffect, useRef } from "react";
-import Particle from "./Particle";
+import React, { useEffect, useRef, lazy, Suspense } from "react";
 import { motion } from "framer-motion";
 import { TypeAnimation } from "react-type-animation";
 import lottie from "lottie-web";
 import animationData from "../assets/header-lottie2.json";
+
+const Particle = lazy(() => import("./Particle"));
 
 const headerVariants = {
   right: {
@@ -26,22 +27,32 @@ const Header = () => {
   const container = useRef(null);
 
   useEffect(() => {
-    lottie.loadAnimation({
+    const anim = lottie.loadAnimation({
       container: container.current,
       renderer: "svg",
       loop: true,
       autoplay: true,
-      animationData: animationData,
+      animationData,
     });
-    return () => {
-      lottie.destroy();
-    };
+
+    return () => anim.destroy();
   }, []);
 
+  const typeAnimationSequence = [
+    "Empowering Brands with Web Development",
+    1000,
+    "Empowering Brands with E-Commerce",
+    1000,
+    "Empowering Brands with App Development",
+    1000,
+  ];
+
   return (
-    <div className="h-[100vh] w-full relative overflow-hidden max-w-screen-xl mx-auto">
-      <Particle />
-      <div className="absolute inset-0 flex items-center justify-between w-full sm:px-8 px-5 flex-col md:flex-row">
+    <div className="min-h-[100vh] w-full relative overflow-hidden max-w-screen-xl mx-auto">
+      <Suspense fallback={<div>Loading...</div>}>
+        <Particle />
+      </Suspense>
+      <div className="absolute inset-0 flex flex-col items-center justify-between w-full px-5 sm:px-8 md:flex-row">
         <div className="md:w-[54%] mt-16 md:mt-0 text-center md:text-left">
           <motion.div
             variants={headerVariants}
@@ -49,22 +60,15 @@ const Header = () => {
             animate="visible"
             className="md:text-[2em] text-[1.6em]"
           >
-            <TypeAnimation
-              sequence={[
-                "Empowering Brands with Web Development",
-                1000,
-                "Empowering Brands with E-Commerce",
-                1000,
-                "Empowering Brands with App Development",
-                1000,
-              ]}
-              wrapper="span"
-              speed={50}
-              style={{
-                display: "inline-block",
-              }}
-              repeat={Infinity}
-            />
+            <div className="min-h-[80px] md:min-h-0">
+              <TypeAnimation
+                sequence={typeAnimationSequence}
+                wrapper="span"
+                speed={50}
+                style={{ display: "inline-block" }}
+                repeat={Infinity}
+              />
+            </div>
             <p className="font-light text-gray-400 my-7 text-sm md:text-[14px]">
               With the synergy of Excellent communication, Experienced
               Engineers, and Latest technology trends, we will provide you with
@@ -82,18 +86,15 @@ const Header = () => {
           </motion.button>
         </div>
         <motion.div
-          className="md:w-[43%] sm:w-[65%] w-[83%]"
+          className="md:w-[43%] sm:w-[65%] w-[100%]"
           variants={headerVariants}
           initial={{ y: "100vh" }}
           animate={{
             y: 0,
-            transition: {
-              type: "spring",
-              delay: 0.3,
-            },
+            transition: { type: "spring", delay: 1 },
           }}
         >
-          <div className="flex justify-end " ref={container}></div>
+          <div className="flex justify-end" ref={container}></div>
         </motion.div>
       </div>
     </div>

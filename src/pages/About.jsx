@@ -1,9 +1,11 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, lazy, Suspense } from "react";
 import anime from "animejs";
-import Testimonials from "../components/Testimonials";
 import lottie from "lottie-web";
 import aboutAnimation from "../assets/aboutAnimation.json";
-import WhyChooseUs from "../components/WhyChooseUs";
+
+// Lazy load components
+const Testimonials = lazy(() => import("../components/Testimonials"));
+const WhyChooseUs = lazy(() => import("../components/WhyChooseUs"));
 
 const Header = () => {
   return (
@@ -18,16 +20,9 @@ const GRID_HEIGHT = 13;
 
 const DotGrid = () => {
   const animeRef = useRef(null);
-  const isAnimatingRef = useRef(false);
 
   useEffect(() => {
-    triggerAnimation({
-      target: {
-        dataset: {
-          index: Math.floor(Math.random() * (GRID_WIDTH * GRID_HEIGHT)),
-        },
-      },
-    });
+    triggerAnimation();
   }, []);
 
   const triggerAnimation = (e) => {
@@ -35,7 +30,6 @@ const DotGrid = () => {
       animeRef.current.pause();
     }
 
-    isAnimatingRef.current = true;
     animeRef.current = anime({
       targets: ".dot-point",
       scale: [
@@ -52,53 +46,39 @@ const DotGrid = () => {
       ],
       delay: anime.stagger(100, {
         grid: [GRID_WIDTH, GRID_HEIGHT],
-        from: e.target.dataset.index,
+        from:
+          e?.target?.dataset?.index ||
+          Math.floor(Math.random() * (GRID_WIDTH * GRID_HEIGHT)),
       }),
-      complete: () => {
-        isAnimatingRef.current = false;
-      },
     });
   };
 
-  const dots = [];
-  let index = 0;
-
-  for (let i = 0; i < GRID_WIDTH; i++) {
-    for (let j = 0; j < GRID_HEIGHT; j++) {
-      dots.push(
-        <div
-          className="p-2 transition-colors rounded-full group cursor-pointer hover:bg-slate-600"
-          data-index={index}
-          key={`${i}-${j}`}
-          onClick={triggerAnimation}
-        >
-          <div
-            className="w-2 h-2 rounded-full opacity-50 dot-point bg-gradient-to-b from-green-400 via-blue-500 to-purple-600 group-hover:from-indigo-600 group-hover:to-white"
-            data-index={index}
-          />
-        </div>
-      );
-      index++;
-    }
-  }
+  const dots = Array.from({ length: GRID_WIDTH * GRID_HEIGHT }, (_, index) => (
+    <div
+      className="p-2 transition-colors rounded-full group cursor-pointer hover:bg-slate-600"
+      data-index={index}
+      key={index}
+      onClick={triggerAnimation}
+    >
+      <div className="w-2 h-2 rounded-full opacity-50 dot-point bg-gradient-to-b from-green-400 via-blue-500 to-purple-600 group-hover:from-indigo-600 group-hover:to-white" />
+    </div>
+  ));
 
   return (
     <div className="relative flex flex-col items-center justify-center overflow-hidden">
       <div
         style={{ gridTemplateColumns: `repeat(${GRID_WIDTH}, 1fr)` }}
-        className="grid z-2 w-fit"
+        className="grid w-fit"
       >
         {dots}
       </div>
-      <div className="absolute top-0 z-10 flex flex-col items-center justify-center w-full h-full pointer-events-none">
-        <h2 className="text-5xl md:text-6xl text-[#F57613] z-10">About Us</h2>
-        <br />
-        <p className="z-10 mb-2 sm:text-sm sm:px-0 text-xs text-center">
-          We provide the best development environment for passionate engineers
-          so that we
+      <div className="absolute top-0 flex flex-col items-center justify-center w-full h-full pointer-events-none">
+        <h2 className="text-5xl md:text-6xl text-[#F57613]">About Us</h2>
+        <p className="mb-2 sm:text-sm text-xs text-center">
+          We provide the best development environment for passionate engineers.
         </p>
-        <p className="z-10 mb-2 sm:text-sm text-xs font-light">
-          can solve complex problems
+        <p className="mb-2 sm:text-sm text-xs font-light">
+          So that we can solve complex problems.
         </p>
       </div>
     </div>
@@ -116,16 +96,12 @@ const About = () => {
       autoplay: true,
       animationData: aboutAnimation,
     });
-    return () => {
-      animation.destroy();
-    };
+    return () => animation.destroy();
   }, []);
 
   return (
     <div>
       <Header />
-      <br />
-
       <div className="flex items-center gap-14 px-8 sm:px-14 mb-14 flex-col md:flex-row max-w-screen-xl mx-auto">
         <div className="lg:w-[60%] md:w-[95%] text-center md:text-left">
           <p className="mb-2 text-sm font-thin">Our Company</p>
@@ -134,32 +110,23 @@ const About = () => {
           </h2>
           <p className="mb-2 text-xs">
             We are passionate teams of engineers striving to solve intractable
-            business problems in creative and pragmatic ways.
+            business problems creatively.
           </p>
           <p className="mb-2 text-xs">
-            We believe meaningful value can be provided through long-term
-            commitment. We don’t want to be an extension of your team, we strive
-            to be a part of it, sharing your vision.
+            We believe in providing meaningful value through long-term
+            commitment.
           </p>
           <p className="mb-2 text-xs">
-            We take on business challenges, learn lessons, do self-improving,
-            and always move forward to rise above them. Two things we value are
-            ensuring a cultivating environment for our teams and the
-            satisfaction of our clients.
+            We value cultivating an environment for our teams and client
+            satisfaction.
           </p>
         </div>
-        <div
-          className="flex justify-end md:w-[900px]"
-          ref={container}
-          // style={{ width: "900px" }}
-        ></div>
+        <div className="flex justify-end md:w-[900px]" ref={container}></div>
       </div>
-      <div>
+      <Suspense fallback={<div>Loading...</div>}>
         <WhyChooseUs />
-      </div>
-      <div>
         <Testimonials />
-      </div>
+      </Suspense>
     </div>
   );
 };

@@ -68,7 +68,7 @@ const DotGrid = () => {
     for (let j = 0; j < GRID_HEIGHT; j++) {
       dots.push(
         <div
-          className="p-2 transition-colors rounded-full group cursor-pointer hover:bg-slate-600"
+          className="p-2 transition-colors rounded-full cursor-pointer group hover:bg-slate-600"
           data-index={index}
           key={`${i}-${j}`}
           onClick={triggerAnimation}
@@ -95,8 +95,8 @@ const DotGrid = () => {
         <h2 className="text-5xl sm:text-6xl text-[#F57613] z-10">Contact Us</h2>
         <br />
         <header className="mb-8 text-center ">
-          <h2 className="md:text-4xl text-3xl font-bold">We're Here to Help</h2>
-          <p className="mt-2 md:text-lg text-gray-300 sm:text-sm text-xs text-center">
+          <h2 className="text-3xl font-bold md:text-4xl">We're Here to Help</h2>
+          <p className="mt-2 text-xs text-center text-gray-300 md:text-lg sm:text-sm">
             Feel free to reach out to us with any questions or concerns. We're
             always here to assist you!
           </p>
@@ -150,9 +150,9 @@ const Contact = () => {
     <section className="max-w-screen-xl mx-auto contact">
       <Header />
 
-      <div className="container contact__container px-10">
+      <div className="container px-10 contact__container">
         <div className="flex flex-col items-center contact__options">
-          <div className="" ref={container}></div>
+          <div ref={container}></div>
           <div className="flex gap-6">
             <a href="mailto:shegerinnovations@gmail.com" target="_blank">
               <article className="contact__option">
@@ -198,7 +198,7 @@ const Contact = () => {
           ></textarea>
           <button
             type="submit"
-            className="p-2 text-white bg-blue-500 rounded btn btn-primary"
+            className="p-2 text-white bg-blue-500 rounded btn btn-primary min-w-[150px]"
           >
             Send Message
           </button>
