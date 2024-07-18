@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { TypeAnimation } from "react-type-animation";
 import lottie from "lottie-web";
 import animationData from "../assets/header-lottie2.json";
+import Loader from "./Loader";
 
 const Particle = lazy(() => import("./Particle"));
 
@@ -49,7 +50,7 @@ const Header = () => {
 
   return (
     <div className="min-h-[100vh] w-full relative overflow-hidden max-w-screen-xl mx-auto">
-      <Suspense fallback={<div>Loading...</div>}>
+      <Suspense fallback={<Loader />}>
         <Particle />
       </Suspense>
       <div className="absolute inset-0 flex flex-col items-center justify-between w-full px-5 sm:px-8 md:flex-row">
