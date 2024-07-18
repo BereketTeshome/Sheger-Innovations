@@ -32,13 +32,19 @@ const socialLinks = [
 
 const Footer = () => {
   return (
-    <footer>
+    <footer
+      className="bg-center bg-cover"
+      style={{
+        backgroundImage: 'url("/footer.png")',
+        backgroundPosition: "center",
+      }}
+    >
       <div className="content">
-        <div className="top flex items-center flex-col sm:flex-row">
+        <div className="flex flex-col items-center top sm:flex-row">
           <div className="logo-details">
             <img src="./Logo.png" alt="footer logo" className="max-w-36" />
           </div>
-          <div className="media-icons flex space-x-2">
+          <div className="flex space-x-2 media-icons">
             {socialLinks.map(({ href, icon }, index) => (
               <a
                 key={index}
@@ -53,10 +59,10 @@ const Footer = () => {
             ))}
           </div>
         </div>
-        <div className="link-boxes flex flex-wrap">
+        <div className="flex flex-wrap items-center link-boxes">
           <div className="max-w-[300px] font-light mb-6 md:mb-0 footer-desc">
             <p
-              className="text-balance text-gray-300"
+              className="text-gray-300 text-balance"
               style={{ wordSpacing: "0.15rem" }}
             >
               <b className="text-4xl text-[#ff932f] font-mono">S</b>heger
@@ -67,7 +73,7 @@ const Footer = () => {
             <hr className="py-2 mt-2" />
             <p className="text-gray-300">
               Based in{" "}
-              <i className="text-white text-lg">Addis Ababa, Ethiopia</i>
+              <i className="text-lg text-white">Addis Ababa, Ethiopia</i>
             </p>
           </div>
           <ul className="box">

@@ -150,8 +150,8 @@ const Contact = () => {
     <section className="max-w-screen-xl mx-auto contact">
       <Header />
 
-      <div className="container px-10 contact__container">
-        <div className="flex flex-col items-center contact__options">
+      <div className="items-center justify-between block gap-5 px-10 md:flex md:gap-20 lg:px-3">
+        <div className="flex flex-col w-full md:w-[50%] items-center ">
           <div ref={container}></div>
           <div className="flex gap-6">
             <a href="mailto:shegerinnovations@gmail.com" target="_blank">
@@ -174,7 +174,11 @@ const Contact = () => {
           </div>
         </div>
 
-        <form className="contact_form" ref={form} onSubmit={sendEmail}>
+        <form
+          className="w-full text-sm md:w-[50%] contact_form"
+          ref={form}
+          onSubmit={sendEmail}
+        >
           <input
             type="text"
             name="name"
@@ -191,14 +195,14 @@ const Contact = () => {
           />
           <textarea
             name="message"
-            rows="4"
+            rows="3"
             placeholder="Your Message"
             required
             className="p-2 mb-4 border border-gray-300 rounded"
           ></textarea>
           <button
             type="submit"
-            className="p-2 text-white bg-blue-500 rounded btn btn-primary min-w-[150px]"
+            className="p-2 text-sm font-light text-white bg-blue-500 rounded btn btn-primary min-w-[150px]"
           >
             Send Message
           </button>

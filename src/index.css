@@ -63,13 +63,6 @@ body {
   margin-top: 20px;
 }
 
-.container.contact__container {
-  display: grid;
-  grid-template-columns: 40% 48%;
-  width: 100%;
-  gap: 7rem;
-}
-
 .contact__option {
   border: 1px solid #85c4f4;
   width: min-content;
@@ -86,14 +79,15 @@ body {
 .contact_form {
   display: flex;
   flex-direction: column;
-  gap: 1.2rem;
+  gap: 1rem;
   position: relative;
   top: 90px;
 }
 .contact_form input,
 .contact_form textarea {
   width: 100%;
-  padding: 1.5rem;
+  padding: 10px;
+  padding-left: 16px;
   border-radius: 0.5rem;
   background: #ffffff10;
   border: 1px solid rgba(60, 60, 151, 0.479);
@@ -104,12 +98,10 @@ body {
   border: none;
   background-color: #fb7115;
   color: #fff;
-  width: 30%;
-  padding: 3%;
   border-radius: 5px;
   margin-bottom: 15%;
   transition: 0.5s;
-  font-size: 1rem;
+  max-width: 110px;
 }
 .contact_form button:hover {
   color: #0b52be;
@@ -303,15 +295,6 @@ footer .bottom-details .bottom_text {
   background: #555;
 }
 
-@media screen and (max-width: 1024px) {
-  .container.contact__container {
-    grid-template-columns: 1fr;
-    gap: 2rem;
-  }
-  .contact__options {
-    width: 100%;
-  }
-}
 @media screen and (max-width: 900px) {
   footer .content .link-boxes {
     flex-wrap: wrap;
@@ -340,12 +323,6 @@ footer .bottom-details .bottom_text {
   .bottom-details .bottom_text span,
   .bottom-details .bottom_text a {
     font-size: 12px;
-  }
-}
-
-@media screen and (max-width: 600px) {
-  .container.contact__container {
-    width: 100%;
   }
 }
 
