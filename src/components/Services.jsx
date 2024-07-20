@@ -104,7 +104,7 @@ const Services = () => {
             animate={isInView && { ...service.initial, x: 0, y: 0 }}
             initial={service.initial}
             transition={{ delay: service.delay, duration: 2, type: "spring" }}
-            className={`${service.bgColor} py-4 rounded-xl z-50`}
+            className={`${service.bgColor} py-4 rounded-xl z-49`}
           >
             <div
               className={`${service.size.height} ${service.size.marginLeft} mb-9`}

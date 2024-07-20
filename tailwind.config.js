@@ -6,11 +6,20 @@ export default {
     "./pages/**/*.{js,ts,jsx,tsx}",
     "./components/**/*.{js,ts,jsx,tsx}",
     "./app/**/*.{js,ts,jsx,tsx}",
-    "node_modules/flowbite-react/lib/esm/**/*.js",
   ],
   darkMode: "class",
   theme: {
-    extend: {},
+    extend: {
+      keyframes: {
+        jump: {
+          "0%, 10%, 100%": { transform: "translateY(0)" },
+          "5%": { transform: "translateY(-16px)" },
+        },
+      },
+      animation: {
+        jump: "jump 7s ease-in-out infinite",
+      },
+    },
   },
   plugins: [],
 };

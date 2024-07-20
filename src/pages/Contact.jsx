@@ -6,6 +6,8 @@ import emailjs from "emailjs-com";
 import lottie from "lottie-web";
 import contactAnimation from "../assets/contact.json";
 import anime from "animejs";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const Header = () => {
   return (
@@ -146,14 +148,18 @@ const Contact = () => {
     e.target.reset();
   };
 
+  useEffect(() => {
+    AOS.init({ duration: 2000 });
+  }, []);
+
   return (
     <section className="max-w-screen-xl mx-auto contact">
       <Header />
 
       <div className="items-center justify-between block gap-5 px-10 md:flex md:gap-20 lg:px-3">
-        <div className="flex flex-col w-full md:w-[50%] items-center ">
+        <div className="flex flex-col w-full md:w-[50%] items-center">
           <div ref={container}></div>
-          <div className="flex gap-6">
+          <div className="flex gap-6 animation" data-aos="fade-right">
             <a href="mailto:shegerinnovations@gmail.com" target="_blank">
               <article className="contact__option">
                 <SiGmail className="contact-icon" />
@@ -175,7 +181,8 @@ const Contact = () => {
         </div>
 
         <form
-          className="w-full text-sm md:w-[50%] contact_form"
+          className="w-full text-sm md:w-[50%] contact_form animation"
+          data-aos="slide-up"
           ref={form}
           onSubmit={sendEmail}
         >
