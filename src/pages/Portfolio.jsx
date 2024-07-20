@@ -2,7 +2,8 @@ import React, { useEffect, useRef } from "react";
 import anime from "animejs";
 import { projects } from "../assets/projects";
 import { Link } from "react-router-dom";
-import { motion, useInView } from "framer-motion";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const Header = () => {
   return (
@@ -80,6 +81,9 @@ const DotGrid = () => {
       index++;
     }
   }
+  useEffect(() => {
+    AOS.init({ duration: 2000 });
+  }, []);
 
   return (
     <div className="relative flex flex-col items-center justify-center overflow-hidden">
@@ -92,11 +96,11 @@ const DotGrid = () => {
       <div className="absolute top-0 z-10 flex flex-col items-center justify-center w-full h-full pointer-events-none">
         <h2 className="text-5xl md:text-6xl text-[#F57613] z-10">Portfolio</h2>
         <br />
-        <p className="z-10 mb-2 sm:text-sm text-xs text-center">
+        <p className="z-10 mb-2 text-xs text-center sm:text-sm">
           We make fast loading, friction removing, problem-solving products that
           get used
         </p>
-        <p className="z-10 mb-2 sm:text-sm text-xs">
+        <p className="z-10 mb-2 text-xs sm:text-sm">
           by thousands of people on a daily basis.
         </p>
       </div>
@@ -105,30 +109,25 @@ const DotGrid = () => {
 };
 
 const Portfolio = () => {
-  const view = useRef();
-  const isInView = useInView(view, { margin: "-100px" });
-
   return (
     <div className="max-w-screen-xl mx-auto">
       <Header />
 
-      <div ref={view}>
-        <div className="grid lg:grid-cols-3 md:grid-cols-2  gap-8 px-6 sm:px-10 mt-20">
+      <div>
+        <div className="grid gap-8 px-6 mt-20 lg:grid-cols-3 md:grid-cols-2 sm:px-10">
           {projects.map((item, index) => {
             return (
               <Link to={item.link} target="_blank">
-                <motion.div
+                <div
                   key={index}
-                  className="bg-[#001f3f] rounded-lg hover:scale-105 duration-200 overflow-hidden shadow-lg shadow-gray-950"
-                  initial={{ opacity: 0 }}
-                  animate={isInView && { opacity: 1 }}
-                  transition={{ duration: 2 }}
+                  className="bg-[#001f3f] rounded-lg hover:scale-105 duration-200 overflow-hidden shadow-lg shadow-gray-950 animation"
+                  data-aos="slide-up"
                 >
                   <div>
                     <img
                       src={item.img}
                       alt={item.title}
-                      className=" aspect-[1.8/1]"
+                      className="aspect-[1.8/1]"
                     />
                   </div>
                   <div className="p-4">
@@ -140,17 +139,17 @@ const Portfolio = () => {
                     </p>
                   </div>
                   <div
-                    className="flex max-h-20 justify-between py-2 px-5 border-t-2 border-teal-900 items-center"
+                    className="flex items-center justify-between px-5 py-2 border-t-2 border-teal-900 max-h-20"
                     key={index}
                   >
                     {item.icons.map((icon, index) => {
                       return (
                         <div
-                          className="h-10 w-10 aspect-w-1 aspect-h-1"
+                          className="w-10 h-10 aspect-w-1 aspect-h-1"
                           key={index}
                         >
                           <img
-                            className="object-contain h-full w-full"
+                            className="object-contain w-full h-full"
                             src={icon.src}
                             alt={icon.alt}
                           />
@@ -158,7 +157,7 @@ const Portfolio = () => {
                       );
                     })}
                   </div>
-                </motion.div>
+                </div>
               </Link>
             );
           })}

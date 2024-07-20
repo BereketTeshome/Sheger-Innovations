@@ -1,5 +1,7 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 import "swiper/css";
 import "swiper/css/effect-coverflow";
@@ -47,8 +49,12 @@ export default function App() {
     },
   ];
 
+  useEffect(() => {
+    AOS.init({ duration: 2000 });
+  }, []);
+
   return (
-    <>
+    <div className="animation" data-aos="zoom-in">
       <h1 className="mb-6 text-2xl text-center">Testimonials</h1>
       <h1 className="px-2 text-4xl text-center sm:text-5xl md:text-6xl">
         What Our Clients Say
@@ -92,6 +98,6 @@ export default function App() {
           </SwiperSlide>
         ))}
       </Swiper>
-    </>
+    </div>
   );
 }

@@ -4,6 +4,8 @@ import Testimonials from "../components/Testimonials";
 import lottie from "lottie-web";
 import aboutAnimation from "../assets/aboutAnimation.json";
 import WhyChooseUs from "../components/WhyChooseUs";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const Header = () => {
   return (
@@ -67,7 +69,7 @@ const DotGrid = () => {
     for (let j = 0; j < GRID_HEIGHT; j++) {
       dots.push(
         <div
-          className="p-2 transition-colors rounded-full group cursor-pointer hover:bg-slate-600"
+          className="p-2 transition-colors rounded-full cursor-pointer group hover:bg-slate-600"
           data-index={index}
           key={`${i}-${j}`}
           onClick={triggerAnimation}
@@ -93,11 +95,11 @@ const DotGrid = () => {
       <div className="absolute top-0 z-10 flex flex-col items-center justify-center w-full h-full pointer-events-none">
         <h2 className="text-5xl md:text-6xl text-[#F57613] z-10">About Us</h2>
         <br />
-        <p className="z-10 mb-2 sm:text-sm sm:px-0 text-xs text-center">
+        <p className="z-10 mb-2 text-xs text-center sm:text-sm sm:px-0">
           We provide the best development environment for passionate engineers
           so that we
         </p>
-        <p className="z-10 mb-2 sm:text-sm text-xs font-light">
+        <p className="z-10 mb-2 text-xs font-light sm:text-sm">
           can solve complex problems
         </p>
       </div>
@@ -121,13 +123,20 @@ const About = () => {
     };
   }, []);
 
+  useEffect(() => {
+    AOS.init({ duration: 2000 });
+  }, []);
+
   return (
     <div>
       <Header />
       <br />
 
-      <div className="flex items-center gap-14 px-8 sm:px-14 mb-14 flex-col md:flex-row max-w-screen-xl mx-auto">
-        <div className="lg:w-[60%] md:w-[95%] text-center md:text-left">
+      <div className="flex flex-col items-center max-w-screen-xl px-8 mx-auto gap-14 sm:px-14 mb-14 md:flex-row">
+        <div
+          className="lg:w-[60%] md:w-[95%] text-center md:text-left animation"
+          data-aos="fade-right"
+        >
           <p className="mb-2 text-sm font-thin">Our Company</p>
           <h2 className="text-2xl sm:text-3xl text-[#F57613] mb-2">
             We Provide Expert Development Service All Over The World
@@ -149,12 +158,12 @@ const About = () => {
           </p>
         </div>
         <div
-          className="flex justify-end md:w-[900px]"
+          className="flex justify-end md:w-[900px] animation"
+          data-aos="slide-up"
           ref={container}
-          // style={{ width: "900px" }}
         ></div>
       </div>
-      <div>
+      <div data-aos="zoom-in" className="animation">
         <WhyChooseUs />
       </div>
       <div>

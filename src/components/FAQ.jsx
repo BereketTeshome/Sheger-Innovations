@@ -1,36 +1,29 @@
-import React, { useRef } from "react";
+import React, { useEffect } from "react";
 import Accordion from "./Accordion";
-import { motion, useInView } from "framer-motion";
+import AOS from "aos";
+import "aos/dist/aos.css";
+
 const FAQ = () => {
-  const viewH1 = useRef();
-  const viewAccordion = useRef();
-  const isInView = useInView(viewH1);
+  useEffect(() => {
+    AOS.init({ duration: 2500 });
+  }, []);
 
   return (
-    <div className="px-5 overflow-hidden" ref={viewH1}>
-      <motion.h1
-        className="px-2 mb-10 text-4xl text-center sm:text-5xl md:text-6xl"
-        initial={{ x: 1000 }}
-        animate={isInView && { x: 0 }}
-        transition={{
-          delay: 0,
-          duration: 1,
-        }}
-      >
+    <div className="px-5 overflow-hidden">
+      <h1 className="px-2 mb-10 text-4xl text-center sm:text-5xl md:text-6xl">
         Frequently Asked Questions
-      </motion.h1>
-      <div className="items-center block max-w-screen-xl p-3 mx-auto bg-[#001F3F] rounded-lg md:flex mb-28">
-        <img src="/FAQ.png" alt="FAQ" className="w-full md:w-[40%] z-10" />
+      </h1>
+      <div className="items-center block max-w-screen-xl p-3 mx-auto bg-[#001F3F] rounded-lg md:flex mb-28 ">
+        <img
+          src="/FAQ.png"
+          alt="FAQ"
+          className="w-full md:w-[40%] z-10 animation"
+          data-aos="fade-right"
+        />
 
-        <motion.div
-          className="sm:px-8 px-3 text-sm sm:text-[14px] py-5 bg-[#001F3F] rounded-lg "
-          initial={{ x: -1000 }}
-          animate={isInView && { x: 0 }}
-          transition={{
-            delay: 0,
-            duration: 2,
-          }}
-          ref={viewAccordion}
+        <div
+          className="sm:px-8 px-3 text-sm sm:text-[14px] py-5 rounded-lg animation"
+          data-aos="fade-left"
         >
           <Accordion
             title="How long does it take to design and launch a website?"
@@ -48,7 +41,7 @@ const FAQ = () => {
             title="How much does professional web design cost?"
             answer="Professional web design costs vary based on project requirements and complexity. We provide customized quotes after understanding your specific needs."
           />
-        </motion.div>
+        </div>
       </div>
     </div>
   );
