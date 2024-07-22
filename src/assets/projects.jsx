@@ -15,7 +15,7 @@ export const projects = [
     img: "/e-commerce.png",
     title: "E-Commerce",
     desc: "A beautifully designed application to connect family member while having fun at Chinese Holiday. Has advanced face detection features to allow users easily interact and respond to questions by their movement. Funded by CocaCola",
-    link: "https://cara-fawn.vercel.app",
+    link: "https://cara-ochre.vercel.app",
     icons: [
       { src: "/python.png", alt: "python_icon" },
       { src: "/react.png", alt: "react_icon" },

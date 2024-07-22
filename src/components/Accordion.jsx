@@ -32,7 +32,7 @@ const Accordion = ({ title, answer }) => {
               xmlns="http://www.w3.org/2000/svg"
             >
               <rect y="7" width="16" height="2" rx="1" />
-              <rect y="7" width="16" height="2" rx="1" className="rotate-90" />
+              <rect x="7" width="2" height="16" rx="1" />
             </svg>
           )}
         </div>
