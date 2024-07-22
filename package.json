@@ -1,6 +1,7 @@
 {
   "name": "sheger-innovations",
   "private": true,
+  "homepage": "https://shegerinnovations.com.et",
   "version": "0.0.0",
   "type": "module",
   "scripts": {

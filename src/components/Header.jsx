@@ -62,9 +62,11 @@ const Header = () => {
               the best quality services and products.
             </p>
           </div>
-          <button className="md:px-10 px-7 md:py-3 duration-150 py-2 font-bold hover:text-[#F7BE05] hover:bg-black text-sm md:text-[14px] text-black rounded-lg shadow-[0_2px_10px_3px_rgba(0,0,0,0.3)] shadow-[#F7BE05] bg-[#F7BE05]">
-            Explore
-          </button>
+          <a href="#services">
+            <button className="md:px-10 px-7 md:py-3 duration-150 py-2 font-bold hover:text-[#F7BE05] hover:bg-black text-sm md:text-[14px] text-black rounded-lg shadow-[0_2px_10px_3px_rgba(0,0,0,0.3)] shadow-[#F7BE05] bg-[#F7BE05]">
+              Explore
+            </button>
+          </a>
         </div>
         <div
           className="md:w-[43%] sm:w-[65%] w-[100%] animation"

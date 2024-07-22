@@ -94,7 +94,10 @@ const Services = () => {
       className="w-full bg-[#04091E] sm:px-8 px-5 max-w-screen-xl mx-auto md:mb-52 mb-28 overflow-hidden"
       ref={view}
     >
-      <h1 className="mb-20 text-4xl text-center sm:text-5xl md:text-6xl">
+      <h1
+        className="mb-20 text-4xl text-center sm:text-5xl md:text-6xl"
+        id="services"
+      >
         Our Services
       </h1>
       <motion.div className="grid w-full gap-10 mx-auto text-center lg:grid-cols-3 md:grid-cols-2 md:text-left md:px-0 sm:px-20">

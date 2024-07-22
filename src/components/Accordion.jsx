@@ -14,17 +14,28 @@ const Accordion = ({ title, answer }) => {
         }`}
       >
         <span>{title}</span>
-        <svg
-          className={`fill-indigo-500 ml-8 transition-transform duration-200 ${
-            isOpen ? "rotate-180" : ""
-          }`}
-          width="16"
-          height="16"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <rect y="7" width="16" height="2" rx="1" />
-          <rect y="7" width="16" height="2" rx="1" className="rotate-90" />
-        </svg>
+        <div className="flex items-center justify-center">
+          {isOpen ? (
+            <svg
+              className="transition-transform duration-200 rotate-180 fill-indigo-500"
+              width="16"
+              height="16"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <rect y="7" width="16" height="2" rx="1" />
+            </svg>
+          ) : (
+            <svg
+              className="transition-transform duration-200 fill-indigo-500"
+              width="16"
+              height="16"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <rect y="7" width="16" height="2" rx="1" />
+              <rect y="7" width="16" height="2" rx="1" className="rotate-90" />
+            </svg>
+          )}
+        </div>
       </button>
       <div
         className={`overflow-hidden transition-all duration-300 ease-in-out text-slate-200 ${

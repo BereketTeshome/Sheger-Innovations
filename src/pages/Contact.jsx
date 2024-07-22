@@ -8,7 +8,7 @@ import contactAnimation from "../assets/contact.json";
 import anime from "animejs";
 import AOS from "aos";
 import "aos/dist/aos.css";
-
+import { IoMdSend } from "react-icons/io";
 const Header = () => {
   return (
     <div className="relative grid bg-transparent place-content-center py-11">
@@ -132,9 +132,9 @@ const Contact = () => {
     emailjs
       .sendForm(
         "service_kotixdb",
-        "template_sobgegj",
+        "template_1cxy0h7",
         form.current,
-        "OYHFEeDBpc_p3GA9O"
+        "pMMJp_KYhRRIJ5sWa"
       )
       .then(
         (result) => {
@@ -149,8 +149,11 @@ const Contact = () => {
   };
 
   useEffect(() => {
-    AOS.init({ duration: 2000 });
+    AOS.init({ duration: 1200 });
   }, []);
+  const handleAlert = () => {
+    alert("Form submitted");
+  };
 
   return (
     <section className="max-w-screen-xl mx-auto contact">
@@ -188,14 +191,14 @@ const Contact = () => {
         >
           <input
             type="text"
-            name="name"
+            name="from_name"
             placeholder="Your Full Name"
             required
             className="p-2 mb-4 border border-gray-300 rounded"
           />
           <input
             type="email"
-            name="email"
+            name="reply_to"
             placeholder="Your Email"
             required
             className="p-2 mb-4 border border-gray-300 rounded"
@@ -209,9 +212,10 @@ const Contact = () => {
           ></textarea>
           <button
             type="submit"
-            className="p-2 text-sm font-light text-white bg-blue-500 rounded btn btn-primary min-w-[150px]"
+            className="px-3 py-2 text-sm font-light text-white bg-blue-500 rounded sm:px-5 btn btn-primary "
+            onClick={() => handleAlert()}
           >
-            Send Message
+            <IoMdSend size={25} />
           </button>
         </form>
       </div>
