@@ -68,7 +68,7 @@ const WhyChooseUs = () => {
             return (
               <div
                 key={index}
-                className={`md:p-4 lg:p-8 flex flex-col justify-center items-center hover:bg-[#001F3F] duration-300 ${
+                className={`md:p-4 lg:p-6 flex flex-col justify-center items-center hover:bg-[#001F3F] duration-300 ${
                   index === 1
                     ? "md:border-l-8 md:border-t md:border-[#EC6B0F]"
                     : ""
